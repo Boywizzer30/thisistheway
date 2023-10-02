@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equi="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div container class="col-7">
+      <div class="d-flex">
+        <h1 class="text-primary ms-1">
+          Welcome to Car Dealz, {{user.first_name}}!!
+        </h1>
+        <a href="/clear_session" class="mt-1 ms-5 fs-3">Log Out</a>
+      </div>
+      <h2 class="text-primary ms-1">Cars for Sale</h2>
+      <table class="table table-hover ms-1 table-bordered table-striped col-sm">
+        <thead class="thread-dark">
+          <tr>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Seller</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cars in cars %}
+          <tr>
+            <td><h1 class="fs-5">{{cars.model}}</h1></td>
+            <td><h1 class="fs-5">{{cars.year.strftime("%Y")}}</h1></td>
+            <td>
+              <h1 class="fs-5">
+                {{cars.user.first_name}} {{cars.user.last_name}}
+              </h1>
+            </td>
+            <td>
+              <a href="/show/{{cars.id}}">View</a> | {% if user.id ==
+              cars.user_id %} <a href="/edit/{{cars.id}}">Edit</a> |
+              <a href="/delete/{{cars.id}}">Delete</a>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a href="/create_car" class="btn btn-primary ms-2">Add A Car</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equi="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Dealz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container col-7">
+        <div class="d-flex">
+            <a href="/welcomepage" class="ms-5 mt-3 fs-4">Dashboard</a>
+            <a href="/clear_session" class="ms-5 mt-3 fs-4">Log Out</a>
+        </div>
+        <div class="container">
+            <div class="bg-light mt-2">
+                <h2 class="text-success ms-1 display-5">${{car.price}}</h2>
+            <div class="d-flex">
+               <p> <h4 class="text-primary ms-1 fs-3">Model:</h4></p>
+                <p class="ms-2"><strong class="fs-3">{{car.model}}</strong></p>
+            </div>
+
+
+                <div class="d-flex">
+                   <p> <h4 class="text-primary ms-1 fs-3">Make:</h4></p>
+                    <p class="ms-4"><strong class="fs-3">{{car.make}}</strong></p>
+                </div>
+
+              
+            <div class="d-flex">
+               <p> <h4 class="text-primary ms-1 fs-3">Year:</h4></p>
+                <p class="ms-4"><strong class="fs-3">{{car.year.strftime("%Y")}}</strong></p>
+            </div>
+              <div class="d-block">
+               <p> <h4 class="text-primary ms-1 fs-3">Description:</h4></p>
+                <p class="ms-1"><strong class="fs-3">{{car.description}}</strong></p>
+            </div>
+            <div class="d-flex">
+            <p><h5 class="text-success ms-1"><strong class="fs-3">Seller {{car.user.first_name}}</strong></h5></p>
+            <a href="/delete/{{car.id}}" class="ms-5 fs-5 mt-1">Purchase</a>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>
+</body>
+
+</html>
